@@ -305,78 +305,94 @@ public class HzGamepad1 {
     /**
      * Method to convert Gamepad commands to actions on Robot
      */
-    public void runSubsystemByGamepadInput(Chassis gpChassis, Arm gpArm, Intake gpIntake) {
+    /*public void runSubsystemByGamepadInput(Chassis gpChassis, Arm gpArm, Intake gpIntake) {*/
+/*
+*/
 
         /*Chassis actions :
         Convert Left Stick and Right Stick motion to power, target Angle and turn for Chassis
          */
-        gpChassis.setLeftColorSensorEnabled(false);
-        gpChassis.setLeftColorSensorEnabled(false);
+    /*    gpChassis.setLeftColorSensorEnabled(false);*/
+    /*    gpChassis.setLeftColorSensorEnabled(false);*/
+/*
+*/
 
-        double leftStickX = turboMode(getLeftStickX());
-        double leftStickY = turboMode(getLeftStickY());
-        double rightStickX = turboMode(getRightStickX());
-        double power = Math.hypot(leftStickX, leftStickY);
-        double targetAngle = Math.atan2(leftStickY, leftStickX);
-        double turn = rightStickX;
-        gpChassis.runByGamepadCommand(targetAngle, turn, power);
+    /*    double leftStickX = turboMode(getLeftStickX());*/
+    /*    double leftStickY = turboMode(getLeftStickY());*/
+    /*    double rightStickX = turboMode(getRightStickX());*/
+    /*    double power = Math.hypot(leftStickX, leftStickY);*/
+    /*    double targetAngle = Math.atan2(leftStickY, leftStickX);*/
+    /*    double turn = rightStickX;*/
+    /*    gpChassis.runByGamepadCommand(targetAngle, turn, power);*/
+/*
+*/
 
-        //Move Hook to position set by Left Trigger
-        //double hookPosition = scaleHookToRange(getLeftTrigger(), gpChassis);
-        //gpChassis.moveHookServo(hookPosition);
-        if(getLeftTrigger()>0.5){
-            gpChassis.moveHook_holdFoundation();
-        }else{
-            gpChassis.moveHook_Released();
-        }
+    /*    //Move Hook to position set by Left Trigger*/
+    /*    //double hookPosition = scaleHookToRange(getLeftTrigger(), gpChassis);*/
+    /*    //gpChassis.moveHookServo(hookPosition);*/
+    /*    if(getLeftTrigger()>0.5){*/
+    /*        gpChassis.moveHook_holdFoundation();*/
+    /*    }else{*/
+    /*        gpChassis.moveHook_Released();*/
+    /*    }*/
+/*
+*/
 
-        //Arm Actions :
-        //If right bumper is pressed, move up a level
-        if (getLeftBumperPress()) {
-            gpArm.moveArm_blockLevelDown();
-        }
-        //If left bumper is pressed, move down a level
-        if (getRightBumperPress()) {
-            gpArm.moveArm_blockLevelUp();
-        }
-        //if Button X is pressed, move Arm to place block at level
-        if (getButtonXPress()) {
-            gpArm.moveArmToPlaceBlockAtLevel();
-        }
-        //if Button B is pressed, move Arm to lift after block placement
-        if (getButtonBPress()){
-            gpArm.moveArmToLiftAfterBlockPlacement();
-        }
+    /*    //Arm Actions :*/
+    /*    //If right bumper is pressed, move up a level*/
+    /*    if (getLeftBumperPress()) {*/
+    /*        gpArm.moveArm_blockLevelDown();*/
+    /*    }*/
+    /*    //If left bumper is pressed, move down a level*/
+    /*    if (getRightBumperPress()) {*/
+    /*        gpArm.moveArm_blockLevelUp();*/
+    /*    }*/
+    /*    //if Button X is pressed, move Arm to place block at level*/
+    /*    if (getButtonXPress()) {*/
+    /*        gpArm.moveArmToPlaceBlockAtLevel();*/
+    /*    }*/
+    /*    //if Button B is pressed, move Arm to lift after block placement*/
+    /*    if (getButtonBPress()){*/
+    /*        gpArm.moveArmToLiftAfterBlockPlacement();*/
+    /*    }*/
+/*
+*/
 
-        //Intake Actions :
-        //If A is pressed, close grip
-        if (getButtonAPress()){
-            if(gpIntake.grip_state == 0){
-                gpIntake.openGrip();
-            } else {
-                gpIntake.closeGrip();
-            }
-        }
-        //If Y is pressed, open grip
-        if (getButtonYPress()){
-            if (gpIntake.grip_state ==2) {
-                gpIntake.openGrip();
-            } else {
-                gpIntake.initGrip();
-            }
-        }
-        //If Dpad_up is pressed, open wrist from close to vertical to horizontal
-        if (getDpad_upPress()){
-            gpIntake.moveWristUp();
-        }
-        //If Dpad_down is pressed, close wrist from horizontal to vertical to close
-        if (getDpad_downPress()){
-            gpIntake.moveWristDown();
-        }
+    /*    //Intake Actions :*/
+    /*    //If A is pressed, close grip*/
+    /*    if (getButtonAPress()){*/
+    /*        if(gpIntake.grip_state == 0){*/
+    /*            gpIntake.openGrip();*/
+    /*        } else {*/
+    /*            gpIntake.closeGrip();*/
+    /*        }*/
+    /*    }*/
+    /*    //If Y is pressed, open grip*/
+    /*    if (getButtonYPress()){*/
+    /*        if (gpIntake.grip_state ==2) {*/
+    /*            gpIntake.openGrip();*/
+    /*        } else {*/
+    /*            gpIntake.initGrip();*/
+    /*        }*/
+    /*    }*/
+    /*    //If Dpad_up is pressed, open wrist from close to vertical to horizontal*/
+    /*    if (getDpad_upPress()){*/
+    /*        gpIntake.moveWristUp();*/
+    /*    }*/
+    /*    //If Dpad_down is pressed, close wrist from horizontal to vertical to close*/
+    /*    if (getDpad_downPress()){*/
+    /*        gpIntake.moveWristDown();*/
+    /*    }*/
+/*
+*/
 
+/*
+*/
 
+/*
+*/
 
-    }
+    /*}*/
 
     public void runSubsystemByGamepadInput(Chassis gpChassis) {
 
